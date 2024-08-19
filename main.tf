@@ -113,8 +113,8 @@ resource "aws_eip" "elastic-ip" {
     instance = aws_instance.main_ec2.id 
 }
 #test ec2 t
-resource "aws_key_pair" "cuong_key_rsa" {
-  key_name   = "cuong_key_rsa"
+resource "aws_key_pair" "cuong_key_rsa1" {
+  key_name   = "cuong_key_rsa1"
   public_key = var.public-key
 }
 
