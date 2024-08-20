@@ -123,7 +123,7 @@ resource "aws_instance" "main_ec2" {
     ami = var.ami
     instance_type = var.instance-type
     vpc_security_group_ids = [ aws_security_group.security-group.id ]
-    key_name = ws_key_pair.demoenvkey.id
+    key_name = aws_key_pair.demoenvkey.id
     user_data = "${file("install_nginx.sh")}"
     tags = {
         Name ="main-ec2" 
