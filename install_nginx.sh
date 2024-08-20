@@ -6,4 +6,4 @@ sudo yum update -y
 sudo yum install -y nginx 
 sudo service nginx start 
 sudo chkconfig nginx on 
-echo "<h1>Hello, DC1</h1>" | sudo tee /usr/share/nginx/html/index.html
+echo "<h1>Hello, DC1</h1>" | sudo tee /var/www/html/index.nginx-debian.html
