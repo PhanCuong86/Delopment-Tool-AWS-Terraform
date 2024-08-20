@@ -8,6 +8,6 @@ sudo yum update -y
 sudo yum install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
-sudo systemctl status apache2
+sudo systemctl status nginx
 echo "<h1>Hello, DC1</h1>" | sudo tee /var/www/html/index.nginx-debian.html
 
