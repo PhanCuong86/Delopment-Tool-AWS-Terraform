@@ -113,8 +113,8 @@ resource "aws_eip" "elastic-ip" {
     instance = aws_instance.main_ec2.id 
 }
 #test ec2 t
-resource "aws_key_pair" "cuong_key_rsa1" {
-  key_name   = "cuong_key_rsa1"
+resource "aws_key_pair" "demoenvkey" {
+  key_name   = "demoenvkey"
   public_key = var.public-key
 }
 
@@ -123,7 +123,7 @@ resource "aws_instance" "main_ec2" {
     ami = var.ami
     instance_type = var.instance-type
     vpc_security_group_ids = [ aws_security_group.security-group.id ]
-    key_name = aws_key_pair.cuong_key_rsa1.id
+    key_name = ws_key_pair.demoenvkey.id
     user_data = "${file("install_nginx.sh")}"
     tags = {
         Name ="main-ec2" 
