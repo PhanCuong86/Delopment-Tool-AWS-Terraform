@@ -132,32 +132,5 @@ resource "aws_instance" "main_ec2" {
 
 }
 
-resource "aws_db_subnet_group" "db_subnet_group" {
-    subnet_ids = [ aws_subnet.container_subnet_1.id, aws_subnet.container_subnet_2.id ]
-    name = "db-subnet-group"
-    tags = {
-        Name = "db_subnet_group"
-        dbsubnet = "db_subnet_group"
-    }
-}
-
-resource "aws_db_instance" "database" {
-    db_subnet_group_name = aws_db_subnet_group.db_subnet_group.id
-    allocated_storage = 10
-    db_name = "dbtesting"
-    engine = "mysql"
-    engine_version = "8.0"
-    instance_class = "db.t3.micro"
-    username = "admin"
-    password = "password"
-    parameter_group_name = "default.mysql8.0"
-    skip_final_snapshot = true
-    vpc_security_group_ids = [ aws_security_group.security-group.id ]
-    tags = {
-        Name = "main-database"
-        database = "database"
-    }
-}
-
 
 
